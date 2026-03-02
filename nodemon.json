@@ -1,0 +1,17 @@
+{
+  "watch": [
+    "server.js",
+    "templates/",
+    "posts/"
+  ],
+  "ext": "js,html,md",
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ignore": [
+    "node_modules/",
+    "package-lock.json",
+    "*.log"
+  ],
+  "delay": "1000"
+}

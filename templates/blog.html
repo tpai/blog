@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="/static/css/shared.css">
+    <style>
+        /* Blog Template Specific Styles */
+        
+        /* Header */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #21262d;
+            padding-bottom: 2rem;
+        }
+        
+        h1 a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0 0;
+            padding: 2rem 0;
+            border-top: 1px solid #21262d;
+            flex-wrap: wrap;
+        }
+        
+        .pagination-info {
+            color: #7d8590;
+            font-weight: 500;
+            padding: 0 1rem;
+            white-space: nowrap;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .post-preview {
+                padding: 1rem;
+            }
+            
+            .pagination {
+                gap: 0.5rem;
+                padding: 2rem 0;
+                margin: 2rem 0 0;
+            }
+            
+            .pagination-btn {
+                min-width: 44px;
+                height: 44px;
+                font-size: 0.9rem;
+            }
+            
+            .pagination-info {
+                font-size: 0.85rem;
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <a href="/">
+                    <img src="/images/logo.jpg" style="width:50px;height:50px;" alt="Logo" />
+                    <span>Tony Pai's Blog</span>
+                </a>
+            </h1>
+            <p>It's all about me.</p>
+        </header>
+        
+        <div class="search-container" id="searchContainer">
+            <form action="/blog/search" method="GET">
+                <input 
+                    type="text" 
+                    name="q" 
+                    class="search-box" 
+                    placeholder="Search posts..." 
+                    value="{{searchQuery}}"
+                    id="searchInput"
+                    aria-label="Search posts"
+                >
+            </form>
+        </div>
+        
+       <div class="search-results">{{searchResults}}</div>
+        
+        <main>
+            {{postsList}}
+        </main>
+        
+        {{pagination}}
+    </div>
+    <script>
+        // Pass template data to JavaScript
+        window.TEMPLATE_DATA = {
+            searchQuery: "{{searchQuery}}"
+        };
+    </script>
+    <script src="/static/js/search-bar.js"></script>
+    <script src="/static/js/blog.js"></script>
+</body>
+</html>
